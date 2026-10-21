@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060b13">
+  <meta name="description" content="NEXORA cryptocurrency portfolio LIVE">
+  <title>NEXORA | Crypto Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="logo" data-page="Dashboard">
+        <span class="logo-icon">N</span>
+        <span>NEX<span class="green">ORA</span></span>
+      </a>
+
+      <div class="LIVE-label">
+        <span class="status-dot"></span>
+        LIVE ACCOUNT
+      </div>
+
+      <nav class="side-nav">
+        <button class="nav-link active" data-page="Dashboard">
+          <span>▦</span> Dashboard
+        </button>
+
+        <button class="nav-link" data-page="Deposit">
+          <span>↓</span> Deposit
+        </button>
+
+        <button class="nav-link" data-page="Withdraw">
+          <span>↑</span> Withdraw
+        </button>
+
+        <button class="nav-link" data-page="Exchange">
+          <span>⇄</span> Exchange
+        </button>
+
+        <button class="nav-link" data-page="Transactions">
+          <span>◷</span> Transaction History
+        </button>
+
+        <button class="nav-link" data-page="Profile">
+          <span>♙</span> Profile
+        </button>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="shield">✓</span>
+        <strong>Live mode</strong>
+        <p> .</p>
+      </div>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <div class="main-area">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Toggle navigation"
+        >☰</button>
+
+        <div class="breadcrumb">
+          <span>NEXORA</span>
+          <span class="muted">/</span>
+          <span id="pageTitle">Dashboard</span>
+        </div>
+
+        <div class="profile">
+          <span class="online-dot"></span>
+          <span class="avatar">D</span>
+          <span class="profile-name">LIVE User</span>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <!-- WELCOME -->
+        <section class="welcome">
+          <div>
+            <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+            <h1 id="welcomeTitle">Welcome back 👋</h1>
+            <p class="subtitle">
+              Manage your LIVE assets and track your activity.
+            </p>
+          </div>
+
+          <span class="LIVE-badge">● LIVE mode</span>
+        </section>
+
+        <div id="notice" class="notice hidden" role="status">
+          <span id="noticeText"></span>
+          <button id="closeNotice" aria-label="Close notice">×</button>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <section id="dashboardPage" class="page">
+
+          <!-- PORTFOLIO SUMMARY -->
+          <div class="summary-grid">
+
+            <article class="balance-card">
+              <div class="balance-top">
+                <span class="eyebrow">PORTFOLIO BALANCE</span>
+                <span class="funds-label">FUNDS · LIVE</span>
+              </div>
+
+              <h2 id="totalBalance">$1,000,000.00</h2>
+
+              <div class="balance-bottom">
+                <span>Live total value</span>
+                <span class="green">● LIVE funds</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">◈</div>
+              <p>Assets held</p>
+              <h2 id="assetCount">4</h2>
+              <small>BTC · ETH · USDT · USD</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon purple">◷</div>
+              <p>Transactions</p>
+              <h2 id="transactionCount">0</h2>
+              <small>LIVE activity records</small>
+            </article>
+
+          </div>
+
+          <!-- QUICK ACTIONS -->
+          <section class="quick-actions">
+            <button class="action-button primary" data-page="Deposit">
+              <span>↓</span> Deposit
+            </button>
+
+            <button class="action-button" data-page="Withdraw">
+              <span>↑</span> Withdraw
+            </button>
+
+            <button class="action-button" data-page="Exchange">
+              <span>⇄</span> Exchange
+            </button>
+          </section>
+
+          <!-- PORTFOLIO CHART -->
+          <section class="panel chart-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">PORTFOLIO ANALYTICS</p>
+                <h2>Performance overview</h2>
+              </div>
+
+              <span class="data-badge">Illustrative data</span>
+            </div>
+
+            <div class="chart-legend">
+              <span class="legend-dot"></span>
+              LIVE portfolio trend
+            </div>
+
+            <div class="chart-container">
+              <div class="chart-labels">
+                <span>100</span>
+                <span>75</span>
+                <span>50</span>
+                <span>25</span>
+              </div>
+
+              <svg
+                id="portfolioChart"
+                viewBox="0 0 700 180"
+                preserveAspectRatio="none"
+                role="img"
+                aria-label="Illustrative portfolio chart, real financial performance"
+              >
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#20d99a" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="#20d99a" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+
+                <g id="chartGrid"></g>
+                <path id="chartArea" fill="url(#chartGradient)"></path>
+                <path
+                  id="chartLine"
+                  fill="none"
+                  stroke="#20d99a"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </div>
+
+            <div class="chart-dates">
+              <span>Week 1</span>
+              <span>Week 2</span>
+              <span>Week 3</span>
+              <span>Week 4</span>
+            </div>
+
+            <p class="disclaimer">
+              Chart values are illustrative and do not represent actual
+              market data or investment returns.
+            </p>
+          </section>
+
+          <!-- ASSETS -->
+          <section class="panel assets-panel">
+            <div class="section-heading assets-heading">
+              <div>
+                <p class="eyebrow">YOUR HOLDINGS</p>
+                <h2>My assets</h2>
+              </div>
+
+              <label class="search-box">
+                <span>⌕</span>
+                <input
+                  id="assetSearch"
+                  type="search"
+                  placeholder="Search assets..."
+                  aria-label="Search assets"
+                >
+              </label>
+            </div>
+
+            <div class="asset-table">
+              <div class="asset-header">
+                <span>Asset</span>
+                <span>Balance</span>
+                <span>Price</span>
+                <span>Value</span>
+              </div>
+
+              <div id="assetList"></div>
+            </div>
+          </section>
+
+          <!-- RECENT TRANSACTIONS -->
+          <section class="panel transactions-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">ACTIVITY LOG</p>
+                <h2>Recent transactions</h2>
+              </div>
+
+              <button class="text-button" data-page="Transactions">
+                View all →
+              </button>
+            </div>
+
+            <div id="recentTransactions"></div>
+          </section>
+
+        </section>
+
+        <!-- WITHDRAW PAGE -->
+        <section id="withdrawPage" class="page hidden">
+          <section class="panel form-panel">
+            <p class="eyebrow">LIVE TRANSACTION</p>
+            <h2>Withdraw funds</h2>
+            <p class="subtitle">
+              Test a withdrawal and see your live balance update.
+            </p>
+
+            <form id="withdrawForm">
+
+              <label for="withdrawAsset">Choose asset</label>
+              <select id="withdrawAsset" required>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="USDT">Tether (USDT)</option>
+                <option value="USD">US Dollar (USD)</option>
+              </select>
+
+              <div class="available-box">
+                <span>Available LIVE balance</span>
+                <strong id="availableBalance">8 BTC</strong>
+              </div>
+
+              <label for="withdrawAmount">Amount to withdraw</label>
+              <input
+                id="withdrawAmount"
+                type="number"
+                min="0"
+                step="any"
+                inputmode="decimal"
+                placeholder="Enter amount"
+                required
+              >
+
+              <label for="destination">LIVE destination address</label>
+              <input
+                id="destination"
+                type="text"
+                placeholder="Enter a LIVE address"
+                minlength="6"
+                required
+              >
+
+              <div class="withdraw-summary">
+                <span>Estimated value</span>
+                <strong id="estimatedValue">$0.00</strong>
+              </div>
+
+              <button type="submit" class="submit-button">
+                Confirm LIVE withdrawal →
+              </button>
+
+              
+              </p>
+
+            </form>
+          </section>
+        </section>
+
+        <!-- DEPOSIT PAGE -->
+        <section id="depositPage" class="page hidden">
+          <section class="panel simple-panel">
+            <div class="stat-icon">↓</div>
+            <h2>Deposit</h2>
+              
+            <p>
+            </p>
+            <button class="submit-button" data-page="Dashboard">
+              Return to dashboard
+            </button>
+          </section>
+        </section>
+
+        <!-- EXCHANGE PAGE -->
+        <section id="exchangePage" class="page hidden">
+          <section class="panel simple-panel">
+            <div class="stat-icon purple">⇄</div>
+            <h2>Exchange</h2>
+            <p>
+              Exchange is not enabled in this LIVE. No assets are traded
+              or converted.
+            </p>
+            <button class="submit-button" data-page="Dashboard">
+              Return to dashboard
+            </button>
+          </section>
+        </section>
+
+        <!-- TRANSACTION HISTORY PAGE -->
+        <section id="transactionsPage" class="page hidden">
+          <section class="panel transactions-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">ACTIVITY LOG</p>
+                <h2>Transaction history</h2>
+              </div>
+            </div>
+
+            <div id="allTransactions"></div>
+          </section>
+        </section>
+
+        <!-- PROFILE PAGE -->
+        <section id="profilePage" class="page hidden">
+          <section class="panel simple-panel">
+            <div class="avatar large-avatar">D</div>
+            <h2>LIVE profile</h2>
+            <p>
+              You are using a LIVE account. No real account or identity
+              verification is connected.
+            </p>
+            <button class="submit-button" data-page="Dashboard">
+              Return to dashboard
+            </button>
+          </section>
+        </section>
+
+        <footer class="footer">
+          <span>© 2026 NEXORA · LIVE interface</span>
+          <span>   </span>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav-link active" data-page="Dashboard">
+      <span>⌂</span>
+      <small>Home</small>
+    </button>
+
+    <button class="mobile-nav-link" data-page="Withdraw">
+      <span>↑</span>
+      <small>Withdraw</small>
+    </button>
+
+    <button class="mobile-nav-link" data-page="Transactions">
+      <span>◷</span>
+      <small>History</small>
+    </button>
+
+    <button class="mobile-nav-link" data-page="Profile">
+      <span>♙</span>
+      <small>Profile</small>
+    </button>
+  </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="app.js"></script>
+  
+</body>
+</html>
