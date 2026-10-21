@@ -918,3 +918,43 @@ document.querySelectorAll("[data-page]").forEach(button => {
 });
 
 // ===================================
+// MOBILE MENU
+// ========================================
+
+byId("menuButton")?.addEventListener("click", () => {
+  byId("sidebar")?.classList.toggle("open");
+});
+
+document.addEventListener("click", event => {
+  const sidebar = byId("sidebar");
+  const menuButton = byId("menuButton");
+
+  if (
+    window.innerWidth <= 800 &&
+    sidebar?.classList.contains("open") &&
+    !sidebar.contains(event.target) &&
+    menuButton &&
+    !menuButton.contains(event.target)
+  ) {
+    sidebar.classList.remove("open");
+  }
+});
+
+// ========================================
+// START APPLICATION
+// ========================================
+
+async function init() {
+  drawPortfolioChart();
+
+  renderPortfolio();
+  renderAssets();
+  renderAllTransactions();
+  updateWithdrawAsset();
+
+  navigateTo("Dashboard");
+
+  await refreshAccount();
+}
+
+init();
